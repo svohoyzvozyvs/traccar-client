@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traccar Client</string>
+    <string name="accessibility_service_title">Traccar Client 后台保活锚点</string>
+    <string name="keepalive_accessibility_service_description">Traccar Client 后台保活锚定服务，确保后台定位服务不被系统异常查杀，此服务不收集任何隐私数据。</string>
+</resources>

@@ -7,6 +7,7 @@ import 'package:traccar_client/password_service.dart';
 import 'package:traccar_client/qr_code_screen.dart';
 
 import 'geolocation_service.dart';
+import 'keepalive_screen.dart';
 import 'l10n/app_localizations.dart';
 import 'preferences.dart';
 
@@ -184,6 +185,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
           if (isHighestAccuracy)
             _buildListTile(AppLocalizations.of(context)!.angleLabel, Preferences.angle, true),
           _buildListTile(AppLocalizations.of(context)!.heartbeatLabel, Preferences.heartbeat, true),
+          if (Platform.isAndroid)
+            ListTile(
+              leading: const Icon(Icons.security, color: Colors.teal),
+              title: const Text('后台保活设置'),
+              subtitle: const Text('Root / Xposed / 无障碍与电池优化保活'),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () async {
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const KeepAliveScreen()),
+                );
+                setState(() {});
+              },
+            ),
           SwitchListTile(
             title: Text(AppLocalizations.of(context)!.advancedLabel),
             value: advanced,

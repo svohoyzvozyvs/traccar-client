@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Traccar Client</string>
+    <string name="accessibility_service_title">Traccar Client Keep-Alive Anchor</string>
+    <string name="keepalive_accessibility_service_description">Keep-alive anchor service for Traccar Client. It ensures continuous background location tracking and does not collect any data.</string>
+</resources>

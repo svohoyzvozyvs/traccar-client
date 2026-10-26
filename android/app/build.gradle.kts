@@ -49,10 +49,16 @@ android {
     }
     buildTypes {
         release {
-            if (keystorePropertiesFile.exists()) {
-                signingConfig = signingConfigs.getByName("release")
+            signingConfig = if (keystorePropertiesFile.exists()) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
             }
             isShrinkResources = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -69,4 +75,8 @@ kotlin {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    compileOnly(files("libs/xposed-api-82.jar"))
 }
